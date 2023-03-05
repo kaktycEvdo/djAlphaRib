@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Альфа-Рыболов | Каталог</title>
+    <link rel="stylesheet" href="{% static 'generic.css' %}">
+    <link rel="stylesheet" href="{% static 'catalog.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+<body>
+    <div id="upper">
+        <div>
+            <a href="main.html">
+                <img src="{% static 'icon.png' %}" id="upicon">
+                Альфа-Рыболов
+            </a>
+        </div>
+        <div id="links">
+            <a href="main.html" class="ldis">Главная</a>
+            <a href="catalog.html" class="ldis lactive" id="lcatalog">Каталог товаров</a>
+            <a href="about.html" class="ldis">О нас</a>
+        </div>
+    <a href="favs.html" id="accountlink" class="ldis"><i class="fontawesome class idk didnt implement yet"></i></a>
+	</div>
+</body>
+</html>
