@@ -1,49 +1,65 @@
 <!DOCTYPE HTML>
 <html>
-{% load static %}
 <head>
+    {% load static %}
 	<meta charset="utf-8">
-	<title>Альфа-Рыболов | Главная</title>
-	<link href="{% static 'general.css' %}">
-    <link href="{% static 'main.css' %}">
-	<link rel="icon" href="{% static 'favicon.ico' %}">
+	<title>АльфаРыболов | Главная</title>
+    <link href="{% static 'generic.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <script src="https://kit.fontawesome.com/1dc8f46dd7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/1dc8f46dd7.css" crossorigin="anonymous">
     <!-- То есть это читают? Тогда, кому интересно: vercel.app -->
 </head>
 <body>
-	<div id="upper">
-		<div>
-			<a href="main.html">
-				<img src="{% static 'icon.png' %}" id="upicon">
-				Альфа-Рыболов
-			</a>
-		</div>
-		<div id="links">
-			<a href="main.html" class="ldis lactive">Главная</a>
-			<a href="catalog.html" id="lcatalog" class="ldis">Каталог товаров</a>
-			<div id="rollout">
-				<a href="catalog.html?filter='all'" class="rlinks">Все</a>
-				<a href="catalog.html?filter='rods'" class="rlinks">Удочки, удилища и спиннинги</a>
-				<a href="catalog.html?filter='coil'" class="rlinks">Катушки</a>
-				<a href="catalog.html?filter='accs'" class="rlinks">Аксессуары</a>
-				<a href="catalog.html?filter='bait'" class="rlinks">Приманки</a>
-				<a href="catalog.html?filter='fibers'" class="rlinks">Лески и плетенные шнуры</a>
-				<a href="catalog.html?filter='box'" class="rlinks">Хранение и переноска снастей</a>
-				<a href="catalog.html?filter='cam'" class="rlinks">Подводные фото- и видеокамеры</a>
-			</div>
-			<a href="about.html" class="ldis">О нас</a>
-		</div>
-		<a href="favs.html" id="accountlink" class="ldis"><i class="fontawesome class idk didnt implement yet"></i></a>
-	</div>
-	<img src="{% static 'filler1.jpg' %}" class="filler">
-	<div id="map">
-		<div id="city">
-			<h1 id="ctext">Здесь будет удобнее всего рыбачить</h1>
-		</div>
-		<iframe src="https://yandex.ru/maps/-/CCUG50sdhA" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	</div>
-	<div id="btext">
-		<a class="atext">Рыбалка - это расслабляющее для некоторых людей хобби, которое требует внимание ко множеству деталей. Здесь вы можете их учесть.</a>
-		<a class="atext">В Главной вы можете выбрать место для рыбалки и перемещаться по сайту. В Каталоге товаров вы можете найти желаемый вами товар. При авторизации этот товар можно пометить желаемым и в странице своего Аккаунта их увидеть. При любых проблемах вы можете обратиться за помощью в странице О нас. Эта функция работает, если вы зарегестрированы.</a>
+    <div id="header">
+        <a href="" id="mainlink">
+            <img src="{% static 'icon.png' %}"> АльфаРыболов
+        </a>
+        <div id="header-links">
+            <a href="" class="hlink activelink">Главная</a>
+            <a href="catalog" class="hlink" id="cat">Каталог</a>
+            <div id="cataloglinks">
+                <a href="catalog?filter=all" class="rlinks">Все</a>
+				<a href="catalog?filter=rods" class="rlinks">Удочки, удилища и спиннинги</a>
+				<a href="catalog?filter=coil" class="rlinks">Катушки</a>
+				<a href="catalog?filter=accs" class="rlinks">Аксессуары</a>
+				<a href="catalog?filter=bait" class="rlinks">Приманки</a>
+				<a href="catalog?filter=fibers" class="rlinks">Лески и плетенные шнуры</a>
+				<a href="catalog?filter=box" class="rlinks">Хранение и переноска снастей</a>
+				<a href="catalog?filter=cam" class="rlinks">Подводные фото- и видеокамеры</a>
+            </div>
+            <a href="about" class="hlink">О нас</a>
+        </div>
+        <div id="header-account">
+            <a href="favs">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </div>
+    <div id="content">
+        <div class="fillerimage">
+            <img src="{% static 'filler1.jpg' %}" class="filler">
+        </div>
+        <div id="map">
+            <h2>Карта</h2>
+            <h3>Здесь будет удобнее всего рыбачить</h3>
+            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/1/moscow-and-moscow-oblast/search/%D0%9A%D0%BB%D1%83%D0%B1%D1%8B%20%D0%BE%D1%85%D0%BE%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%20%D1%80%D1%8B%D0%B1%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE%D0%B2/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Клубы охотников и рыболовов в Москве и Московской области</a><a href="https://yandex.ru/maps/1/moscow-and-moscow-oblast/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Москва и Московская область</a><iframe src="https://yandex.ru/map-widget/v1/?display-text=%D0%9A%D0%BB%D1%83%D0%B1%D1%8B%20%D0%BE%D1%85%D0%BE%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B8%20%D1%80%D1%8B%D0%B1%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE%D0%B2&ll=37.661675%2C55.730777&mode=search&sll=37.661675%2C55.728296&text=category_id%3A%28184107301%29&z=9" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+        </div>
+        <div id="text">
+            <div class="atext">Рыбалка - это расслабляющее хобби, которое требует внимание ко множеству деталей. Здесь вы можете их учесть.</div>
+            <div class="atext">В <a href="main.html" class="linkm">Главной</a> вы можете выбрать место для рыбалки и перемещаться по сайту. В <a href="catalog.html" class="linkc">Каталоге</a> товаров вы можете найти желаемый вами товар. При авторизации этот товар можно пометить желаемым и в странице своего <a href="account.html" class="linka">Аккаунта</a> их увидеть. При любых проблемах вы можете обратиться за помощью в странице <a href="about.html" class="linko">О нас</a>. Эта функция работает, если вы зарегестрированы.</div>
+        </div>
+    </div>
+	<div id="bottom-links">
+		<a href="../">
+            <i class="fa-sharp fa-solid fa-house"></i>Главная
+        </a>
+		<a href="../catalog">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Каталог
+        </a>
+		<a href="../about">
+            <i class="fa-sharp fa-solid fa-circle-info"></i>О нас
+        </a>
 	</div>
 </body>
 </html>

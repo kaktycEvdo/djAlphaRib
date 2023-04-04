@@ -1,27 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Альфа-Рыболов | Каталог</title>
-    <link rel="stylesheet" href="{% static 'generic.css' %}">
-    <link rel="stylesheet" href="{% static 'catalog.css' %}">
+    {% load static %}
+	<meta charset="utf-8">
+	<title>АльфаРыболов | Каталог</title>
+    <link href="{% static 'generic.css' %}" rel="stylesheet">
     <link rel="icon" href="{% static 'favicon.ico' %}">
+    <script src="https://kit.fontawesome.com/1dc8f46dd7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/1dc8f46dd7.css" crossorigin="anonymous">
+    <!-- То есть это читают? Тогда, кому интересно: vercel.app -->
 </head>
 <body>
-    <div id="upper">
-        <div>
-            <a href="main.html">
-                <img src="{% static 'icon.png' %}" id="upicon">
-                Альфа-Рыболов
+	<script src="scr.js"></script>
+    <div id="header">
+        <a href="../" id="mainlink">
+            <img src="{% static 'icon.png' %}"> АльфаРыболов
+        </a>
+        <div id="header-links">
+            <a href="../" class="hlink">Главная</a>
+            <a href="../catalog" class="hlink activelink">Каталог</a>
+            <a href="../about" class="hlink">О нас</a>
+        </div>
+        <div id="header-account">
+            <a href="../favs">
+                <i class="fa-solid fa-user"></i>
             </a>
         </div>
-        <div id="links">
-            <a href="main.html" class="ldis">Главная</a>
-            <a href="catalog.html" class="ldis lactive" id="lcatalog">Каталог товаров</a>
-            <a href="about.html" class="ldis">О нас</a>
+    </div>
+    <div id="content">
+		<h2>Каталог товаров | {{ filt }}</h2>
+        <div id="catcatlinks">
+            <a href="?filter=all" class="rlinks">Все</a>
+            <a href="?filter=rods" class="rlinks">Удочки, удилища и спиннинги</a>
+            <a href="?filter=coil" class="rlinks">Катушки</a>
+            <a href="?filter=accs" class="rlinks">Аксессуары</a>
+            <a href="?filter=bait" class="rlinks">Приманки</a>
+            <a href="?filter=fibers" class="rlinks">Лески и плетенные шнуры</a>
+            <a href="?filter=box" class="rlinks">Хранение и переноска снастей</a>
+            <a href="?filter=cam" class="rlinks">Подводные фото- и видеокамеры</a>
         </div>
-    <a href="favs.html" id="accountlink" class="ldis"><i class="fontawesome class idk didnt implement yet"></i></a>
+        <div id="goods">
+            {% for item in items %}
+                <div class="tgood">
+                    <div class="cgood">
+                        <a class="info" href="item?id={{ item.pk }}">
+                            <img src="{{ item.image.url }}.jpg" class="gimg">
+                            <text>{{ item.name }}</text>
+                            <text>{{ item.characteristics }}</text>
+                        </a>
+                        <a class="cbutton">Добавить в избранное</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="bottom-links">
+		<a href="../">
+            <i class="fa-sharp fa-solid fa-house"></i>Главная
+        </a>
+		<a href="../catalog">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Каталог
+        </a>
+		<a href="../about">
+            <i class="fa-sharp fa-solid fa-circle-info"></i>О нас
+        </a>
 	</div>
 </body>
 </html>

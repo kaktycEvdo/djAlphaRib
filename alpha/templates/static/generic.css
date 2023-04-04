@@ -1,0 +1,304 @@
+body{
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+}
+#content{
+    padding: 15vh 0 15vh 0;
+}
+#header{
+    display: grid;
+    grid-auto-flow: column;
+    padding: 15px;
+	height:10vh;
+    text-align: center;
+    justify-items: baseline;
+	justify-content: center;
+	align-items: center;
+    background-color: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(10px);
+    grid-column-gap: 50px;
+    position: fixed;
+    width: 100vw;
+	z-index: 5;
+}
+#header-links{
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    justify-items: center;
+    grid-column-gap: 10px;
+	width: 50vw;
+    height: 10vh;
+}
+.hlink{
+    text-decoration: underline 3px solid black;
+    color: black;
+    position: relative;
+    width: 200px;
+    font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    height: 100px;
+}
+.hlink:hover{
+    color: cornflowerblue;
+    text-decoration: underline 3px solid cornflowerblue;
+}
+#header-links .activelink{
+    color: cornflowerblue;
+    text-decoration: underline 3px solid cornflowerblue;
+}
+#cataloglinks{
+    display: none;
+    position: fixed;
+	top: 10vh;
+	z-index: 10;
+	flex-flow: column wrap;
+	font-weight: 600;
+}
+#header-links:hover #cataloglinks{
+	display: flex;
+}
+#cataloglinks a{
+	height: 5%;
+	padding: 2%;
+	text-decoration: none;
+	color: black;
+	background-color: whitesmoke;
+}
+#cataloglinks a:hover{
+	color: cornflowerblue;
+	text-decoration: underline 3px solid cornflowerblue;
+}
+#bottom-links{	
+	display: none;
+	grid-auto-flow: column;
+    padding: 15px;
+    height: 5vh;
+    justify-items: baseline;
+	justify-content: center;
+	align-items: center;
+    background-color: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(10px);
+    grid-column-gap: 50px;
+    position: fixed;
+    width: 100vw;
+	z-index: 5; 
+	bottom: 0;
+}
+#bottom-links a{
+	text-decoration: none;
+	color: black;
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 10px;
+}
+#mainlink{
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    grid-column-gap: 20px;
+	text-overflow: ellipsis;
+}
+#mainlink img{
+    width: 100px;
+}
+#header-account a{
+    width: 10vw;
+    height: 10vh;
+    color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#header-account a:hover i{
+	border: 2px outset cornflowerblue;
+	padding: 2px;	
+}
+#header-account
+.acactive i{
+	border: 2px outset cornflowerblue;
+	padding: 2px;
+}
+.fillerimage{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+.fillerimage img{
+    height: 15vh;
+    width: 99vw;
+    object-fit: cover;
+}
+#map{
+    padding-top: 5vh;
+    text-align: center;
+}
+#map iframe{
+    width: 99vw;
+    height: 700px;
+}
+#text{
+    text-align: center;
+    text-overflow: unset;
+}
+.atext{
+    font-weight: 600;
+    padding: 10px 5%;
+	font-size: 30px;
+}
+.atext a{
+	color: cornflowerblue;
+	text-decoration: none;
+}
+#content h2{
+	position: relative;
+	left: 20px;
+	width: fit-content;
+	margin: 0;
+}
+#catcatlinks{
+	text-align: center;
+	position: relative;
+	--width: width;
+	left: calc(var(--width) - 50%);
+	display: flex;
+	flex-flow: wrap row;
+	border-bottom: cornflowerblue solid 3px;
+	border-top: cornflowerblue solid 3px;
+	justify-content: space-around;
+}
+#catcatlinks a{
+	font-weight: 600;
+	text-decoration: none;
+	color: black;
+	padding: 10px;
+}
+#catcatlinks a:hover{
+	text-decoration: cornflowerblue 3px solid underline;
+	color: cornflowerblue;
+}
+#goods{
+	display: grid;
+	grid-gap: 3%;
+	padding: 20px;
+	grid-template-columns: repeat(4, 1fr);
+}
+#goods .cgood{
+	height: 30vh;
+	background-color: white;
+	border-radius: 10px;
+	border: solid gray 1px;
+	display: grid;
+	grid-template-rows: 80% 20%;
+	grid-auto-flow: row;
+	row-gap: 10px;
+	position: relative;
+	z-index: 1;
+	flex-basis: 100%;
+}
+#goods .cgood .info{
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-rows: 30% max-content 40%;
+}
+#goods .cgood .info text{
+	padding: 10px;
+}
+#goods .tgood{
+	display: flex;
+	justify-content: center;
+	min-height: max-content;
+}
+#goods .tgood:nth-child(4n+4){
+	justify-content: flex-end;
+}
+#goods .tgood:nth-child(4n+1){
+	justify-content: flex-start;
+}
+#goods .cgood:hover{
+	width: 25vw;
+	height: 35vh;
+	position: absolute;
+	z-index: 2;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#goods .cbutton{
+	justify-self: center;
+	display: table-cell;
+	text-align: center;
+	vertical-align: center;
+	background-color: white;
+	border-radius: 5px;
+	border: solid cornflowerblue 1px;
+	height: fit-content;
+	padding: 10px;
+	width: 90%;
+	z-index: 3;
+}
+#goods .cbutton:hover{
+	cursor: pointer;
+}
+.gimg{
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border: 0;
+	border-radius: 9px 9px 0 0;
+}
+.btext{
+	font-size: 30px;
+	padding: 20px;
+}
+#fabout{
+	padding: 0 15px;
+	display: grid;
+	grid-auto-flow: row;
+	grid-gap: 30px;
+	justify-content: center;
+	justify-items: center;
+}
+.ftext{
+	padding: 5px;
+	border-radius: 5px;
+	resize: both;
+	width: 30vw;
+	height: 20vh;
+	border: 2px solid black;
+}
+.fsubmit{
+	background-color: cornflowerblue;
+	color: white;
+	border-radius: 5px;
+	border: 2px outset #4475cd;
+	font-size: 20px;
+	padding: 5px;
+	width: fit-content;
+}
+@media only screen and (max-width: 1080px){
+	#header #header-links{
+		display: none;
+	}
+	#bottom-links{
+		display: grid;
+	}
+	#goods{
+		grid-template-columns: repeat(2, 1fr);
+	}
+	#goods .cgood:hover{
+		width: 20vw;
+		height: 30vh;
+		position: initial;
+		z-index: 1;
+		box-shadow: none;
+	}
+	#goods .tgood{
+		position: relative;
+	}
+}

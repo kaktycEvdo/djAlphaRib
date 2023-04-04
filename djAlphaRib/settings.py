@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-x6mfgeth2!p=5v7j2efpm-varwd9#-1on7+%ew^ct^g2vp#&pe
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'djAlphaRib.wsgi.application'
+WSGI_APPLICATION = 'djAlphaRib.wsgi.app'
 
 
 # Database
@@ -79,11 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
-        'NAME': 'mysch',
+        'NAME': 'maindb',
         'USER': 'root',
-        'OPTIONS': {
-            'read_default_file': '',
-        }
+        'PASSWORD': '2VJvb6vjLuMto2',
     }
 }
 
@@ -122,6 +120,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'alpha/templates/static',

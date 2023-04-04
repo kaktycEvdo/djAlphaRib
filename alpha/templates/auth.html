@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Альфа-Рыболов | Вход</title>
+    {% load static %}
+	<meta charset="utf-8">
+	<title>АльфаРыболов | О нас</title>
+    <link href="{% static 'generic.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <script src="https://kit.fontawesome.com/1dc8f46dd7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/1dc8f46dd7.css" crossorigin="anonymous">
+    <!-- То есть это читают? Тогда, кому интересно: vercel.app -->
 </head>
 <body>
+    <div id="header">
+        <a href="main.html" id="mainlink">
+            <img src="{% static 'icon.png' %}"> АльфаРыболов
+        </a>
+        <div id="header-links">
+            <a href="../" class="hlink">Главная</a>
+            <a href="../catalog" class="hlink">Каталог</a>
+            <div id="cataloglinks">
+                <a href="../catalog?filter='all'" class="rlinks">Все</a>
+				<a href="../catalog?filter='rods'" class="rlinks">Удочки, удилища и спиннинги</a>
+				<a href="../catalog?filter='coil'" class="rlinks">Катушки</a>
+				<a href="../catalog?filter='accs'" class="rlinks">Аксессуары</a>
+				<a href="../catalog?filter='bait'" class="rlinks">Приманки</a>
+				<a href="../catalog?filter='fibers'" class="rlinks">Лески и плетенные шнуры</a>
+				<a href="../catalog?filter='box'" class="rlinks">Хранение и переноска снастей</a>
+				<a href="../catalog?filter='cam'" class="rlinks">Подводные фото- и видеокамеры</a>
+            </div>
+            <a href="../about" class="hlink">О нас</a>
+        </div>
+        <div id="header-account">
+            <a href="../favs" class="acactive">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+        <div>
 
+        </div>
+    </div>
+    <img class="backimg">
+    <div id="content">
+        <h2>Войти</h2>
+        <form method="post" id="authform" name="Auth">
+            {% csrf_token %}
+            <p>{{ form.username.errors }}</p>
+            <p>{{ form.username }}</p>
+            <p>{{ form.password.errors }}</p>
+            <p>{{ form.password }}</p>
+            <p><button type="submit">Войти</button></p>
+            {{ error }}
+        </form>
+    </div>
+    <div id="bottom-links">
+		<a href="../">
+            <i class="fa-sharp fa-solid fa-house"></i>Главная
+        </a>
+		<a href="../catalog">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Каталог
+        </a>
+		<a href="../about">
+            <i class="fa-sharp fa-solid fa-circle-info"></i>О нас
+        </a>
+	</div>
 </body>
 </html>

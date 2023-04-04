@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class AboutForm(forms.Form):
@@ -8,11 +10,19 @@ class AboutForm(forms.Form):
         pass
 
 
-class AuthForm(forms.Form):
-    login = forms.CharField(max_length=30)
-    password = forms.CharField(max_length=50)
+class AuthForm(AuthenticationForm):
+    login = forms.EmailField(widget=forms.EmailInput, max_length=30)
+    password = forms.CharField(widget=forms.PasswordInput, max_length=50)
+
+    class Meta:
+        model = User
+        fields = ['email', 'password']
 
 
-class RegForm(forms.Form):
-    login = forms.CharField(max_length=30)
-    password = forms.CharField(max_length=50)
+class RegForm(forms.ModelForm):
+    login = forms.EmailField(max_length=30)
+    password = forms.CharField(widget=forms.PasswordInput, max_length=50)
+
+    class Meta:
+        model = User
+        fields = ['login', 'password']

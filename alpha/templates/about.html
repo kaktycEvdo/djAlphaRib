@@ -1,46 +1,60 @@
 <!DOCTYPE HTML>
 <html>
-{% load static %}
 <head>
+    {% load static %}
 	<meta charset="utf-8">
-	<title>Альфа-Рыболов | О нас</title>
-	<link href="{% static 'general.css' %}">
-	<link rel="icon" href="{% static 'favicon.ico' %}">
+	<title>АльфаРыболов | О нас</title>
+    <link href="{% static 'generic.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <script src="https://kit.fontawesome.com/1dc8f46dd7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/1dc8f46dd7.css" crossorigin="anonymous">
+    <!-- То есть это читают? Тогда, кому интересно: vercel.app -->
 </head>
 <body>
-	<div id="upper">
-		<div>
-			<a href="main.html">
-				<img src="{{ MEDIA_URL }}/icon.png" id="upicon">
-				Альфа-Рыболов
-			</a>
-		</div>
-		<div id="links">
-			<a href="main.html" class="ldis">Главная</a>
-			<a href="catalog.html" class="ldis" id="lcatalog">Каталог товаров</a>
-			<div id="rollout">
-				<a href="catalog.html?filter='all'" class="rlinks">Все</a>
-				<a href="catalog.html?filter='rods'" class="rlinks">Удочки, удилища и спиннинги</a>
-				<a href="catalog.html?filter='coil'" class="rlinks">Катушки</a>
-				<a href="catalog.html?filter='accs'" class="rlinks">Аксессуары</a>
-				<a href="catalog.html?filter='bait'" class="rlinks">Приманки</a>
-				<a href="catalog.html?filter='fibers'" class="rlinks">Лески и плетенные шнуры</a>
-				<a href="catalog.html?filter='box'" class="rlinks">Хранение и переноска снастей</a>
-				<a href="catalog.html?filter='???'" class="rlinks">Нечто ещё</a> <!-- я потом скачаю тз и напишу клянусь мамой --->
-			</div>
-			<a href="about.html" class="ldis lactive">О нас</a>
-		</div>
-        <a href="favs.html" id="accountlink" class="ldis"><i class="fontawesome class idk didnt implement yet"></i></a>
-	</div>
-	<div id="text">
-		<a class="atext">Сайт разработан в 2023г. одним человеком при помощи HTML+CSS+JS и Django. Заказчиком является ИП Третьяков И. В.</a>
-		<a class="btext">Что-то не так? Хотите ответа?</a>
-		<a class="ctext">(функция работает только с авторизованными пользователями)</a>
-		<form method="POST" name="postcard" action="about.html#">
-            {% csrf_token %}
-			<input type="text">
-			<input type="submit" value="ААААААААААА">
-		</form>
+    <div id="header">
+        <a href="main.html" id="mainlink">
+            <img src="{% static 'icon.png' %}"> АльфаРыболов
+        </a>
+        <div id="header-links">
+            <a href="../" class="hlink">Главная</a>
+            <a href="../catalog" class="hlink">Каталог</a>
+            <div id="cataloglinks">
+                <a href="../catalog?filter='all'" class="rlinks">Все</a>
+				<a href="../catalog?filter='rods'" class="rlinks">Удочки, удилища и спиннинги</a>
+				<a href="../catalog?filter='coil'" class="rlinks">Катушки</a>
+				<a href="../catalog?filter='accs'" class="rlinks">Аксессуары</a>
+				<a href="../catalog?filter='bait'" class="rlinks">Приманки</a>
+				<a href="../catalog?filter='fibers'" class="rlinks">Лески и плетенные шнуры</a>
+				<a href="../catalog?filter='box'" class="rlinks">Хранение и переноска снастей</a>
+				<a href="../catalog?filter='cam'" class="rlinks">Подводные фото- и видеокамеры</a>
+            </div>
+            <a href="../about" class="hlink activelink">О нас</a>
+        </div>
+        <div id="header-account">
+            <a href="../favs">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </div>
+    </div>
+    <div id="content">
+        <div id="btext">
+            <div class="btext">Данный сайт был разработан на основе HTML5+CSS+JS и фреймворка Django, используя generic. Автором является Третьяков И.В.</div>
+			<form id="fabout">
+				<textarea class="ftext" placeholder="Текст"></textarea>
+				<input class="fsubmit" type="submit" value="Отправить">
+			</form>
+        </div>
+    </div>
+    <div id="bottom-links">
+		<a href="../">
+            <i class="fa-sharp fa-solid fa-house"></i>Главная
+        </a>
+		<a href="../catalog">
+            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>Каталог
+        </a>
+		<a href="../about">
+            <i class="fa-sharp fa-solid fa-circle-info"></i>О нас
+        </a>
 	</div>
 </body>
 </html>
