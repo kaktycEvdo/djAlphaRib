@@ -77,11 +77,8 @@ WSGI_APPLICATION = 'djAlphaRib.wsgi.app'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'maindb',
-        'USER': 'root',
-        'PASSWORD': '2VJvb6vjLuMto2',
     }
 }
 
