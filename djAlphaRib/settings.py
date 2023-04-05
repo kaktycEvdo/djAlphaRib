@@ -120,9 +120,10 @@ USE_TZ = True
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    BASE_DIR / 'alpha/templates/static',
-)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    '/var/task/static/',
+]
 STATIC_ROOT = BASE_DIR / 'static'
 
 # Default primary key field type
