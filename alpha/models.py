@@ -8,7 +8,7 @@ class CatItem(models.Model):
     characteristics = models.TextField(max_length=500)
     characteristics_long = models.TextField(max_length=1000)
     links = models.TextField(max_length=200)
-    image = models.ImageField(upload_to="alpha/templates")
+    image = models.FilePathField(path="alpha/templates/media")
 
 
 class FavItems(models.Model):
